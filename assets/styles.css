@@ -1,0 +1,20 @@
+/* Stylings for Navbar */
+.navbar-brand {
+    font-size: 36px;
+}
+
+/* Stylings for header */
+.search-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Stylings for city names */
+.city-name {
+    font-size: 30px;
+}
+
+/* Stylings for forecast dates */
+.forecast-date {
+    font-size: 18px;
+}
