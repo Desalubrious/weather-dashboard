@@ -11,8 +11,9 @@ function init(){
     var nameEl = document.getElementById('city-name');
     var currentWindEl = document.getElementById('wind');
     var currentUVEl = document.getElementById('UV-index');
-
-    let searches = JSON.parse(localStorage.getItem('searches')) || [];
+    
+    // Gets search history from local storage
+    let searches = JSON.parse(localStorage.getItem('search')) || [];
     console.log(searches);
 
     // Reads the city name from user, then requests from the open weather api.
@@ -37,7 +38,7 @@ function init(){
             currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
             currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
             
-            
+            // API call to get UVI
             let lat = response.data.coord.lat;
             let long = response.data.coord.lon;
             let UVQuery = 'https://api.openweathermap.org/data/2.5/uvi/forecast?lat=' + lat + '&lon=' + long + '&appid=' + key + '&cnt=1';
@@ -102,10 +103,7 @@ function init(){
     })
 
 
-    setSearchHistory();
-    if(searches.length > 0){
-        getWeather(searches[searches.length -1]);
-    }
+    
 
 
     function k2f(K) {
@@ -126,7 +124,10 @@ function init(){
             historyEl.append(historyItems);
         }
 
-       
+        setSearchHistory();
+        if(searches.length > 0){
+            getWeather(searches[searches.length -1]);
+        }
 
      
     }
