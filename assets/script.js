@@ -84,6 +84,9 @@ function init(){
                 }
             })
         });
+
+
+        
     }
 
     // On Click Event Listener That Updates Search History
